@@ -13,7 +13,7 @@ start "LegalLens Backend" cmd /k ".\venv\Scripts\python -m uvicorn backend.app.m
 timeout /t 2 /nobreak >nul
 
 echo [2/2] Starting React Frontend on http://127.0.0.1:3000 ...
-start "LegalLens Frontend" cmd /k "cd frontend && npm run preview -- --port 3000 --host 127.0.0.1"
+start "LegalLens Frontend" cmd /k "set PATH=%NODE_PATH%;%%PATH%% && cd frontend && npm run preview -- --port 3000 --host 127.0.0.1"
 
 timeout /t 2 /nobreak >nul
 
