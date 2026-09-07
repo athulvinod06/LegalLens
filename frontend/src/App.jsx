@@ -231,9 +231,6 @@ export default function App() {
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-xl font-bold text-slate-900 tracking-tight">LegalLens</h1>
-                <span className="text-[10px] bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                  Academic MCA Project
-                </span>
               </div>
               <p className="text-xs text-slate-500">AI-Powered Explainable Contract Intelligence</p>
             </div>
@@ -645,7 +642,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-white py-4 px-6 text-center text-xs text-slate-500">
-        LegalLens &bull; MCA Academic Mini Project &bull; Built in strict compliance with AGENTS.md Constitution &bull; First-pass review only.
+        LegalLens
       </footer>
     </div>
   );
