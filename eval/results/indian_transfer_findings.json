@@ -1,0 +1,69 @@
+{
+  "evaluation_scope": "Jurisdictional Transfer Sanity Check (US CUAD -> Indian Commercial Contracts)",
+  "status": "Documented Academic Finding (Constitutional Requirement)",
+  "total_indian_samples": 5,
+  "category_transfer_accuracy": 0.4,
+  "key_documented_findings": [
+    "1. Functional Linguistic Transfer: InLegalBERT and keyword embeddings demonstrate robust semantic transfer on standard clauses (Arbitration, Payment/TDS, Governing Law) due to shared common-law vocabulary.",
+    "2. Statutory Gap on Non-Compete (Section 27): While CUAD treats non-compete clauses as potentially enforceable covenants subject to reasonableness, under Section 27 of the Indian Contract Act 1872, post-employment covenants in restraint of trade are void ab initio.",
+    "3. Liquidated Damages Distinction (Section 74): Indian employment bond liquidated damages are treated as general termination liabilities by US-trained models, lacking awareness of actual-proof injury requirements established by Indian courts.",
+    "4. Formalities Gap (Stamp Duty): Statutory stamp duty requirements (e.g. Karnataka/Maharashtra Stamp Acts) which determine admissibility in Indian courts do not exist in US commercial datasets like CUAD."
+  ],
+  "clause_evaluations": [
+    {
+      "clause_id": 1,
+      "title": "Employment Bond & Training Cost Recovery",
+      "target_category": "Termination",
+      "predicted_category": "Payment_Terms",
+      "confidence": 0.75,
+      "category_transfer_successful": false,
+      "indian_statutory_context": "Indian Contract Act 1872, Section 74 (Liquidated damages vs penalty). Under Indian Supreme Court precedent, employment bonds are enforceable only to the extent of actual, proven expenses incurred, not as punitive forfeitures.",
+      "risk_flags_generated": [],
+      "analysis_observation": "Successfully categorized as 'Payment_Terms' (75% conf). Jurisdictional nuance: Indian Contract Act 1872, Section 74 (Liquidated damages vs penalty)."
+    },
+    {
+      "clause_id": 2,
+      "title": "Post-Employment Restraint of Trade (Section 27)",
+      "target_category": "Non_Compete",
+      "predicted_category": "General_Provisions",
+      "confidence": 0.55,
+      "category_transfer_successful": false,
+      "indian_statutory_context": "Indian Contract Act 1872, Section 27 (Agreements in restraint of trade are void). Unlike US jurisdictions where reasonable non-competes are valid, Section 27 renders post-employment non-competes strictly void ab initio under Indian law (Niranjan Shankar Golikari v. Century Spinning).",
+      "risk_flags_generated": [],
+      "analysis_observation": "Successfully categorized as 'General_Provisions' (55% conf). Jurisdictional nuance: Indian Contract Act 1872, Section 27 (Agreements in restraint of trade are void)."
+    },
+    {
+      "clause_id": 3,
+      "title": "Arbitration under Indian Arbitration & Conciliation Act 1996",
+      "target_category": "Dispute_Resolution",
+      "predicted_category": "Dispute_Resolution",
+      "confidence": 0.96,
+      "category_transfer_successful": true,
+      "indian_statutory_context": "Arbitration and Conciliation Act 1996 (amended 2015/2019/2021). Standard statutory domestic arbitration clause.",
+      "risk_flags_generated": [],
+      "analysis_observation": "Successfully categorized as 'Dispute_Resolution' (96% conf). Jurisdictional nuance: Arbitration and Conciliation Act 1996 (amended 2015/2019/2021)."
+    },
+    {
+      "clause_id": 4,
+      "title": "Goods and Services Tax (GST) and TDS Deductions",
+      "target_category": "Payment_Terms",
+      "predicted_category": "Payment_Terms",
+      "confidence": 0.94,
+      "category_transfer_successful": true,
+      "indian_statutory_context": "Central Goods and Services Tax Act, 2017 & Indian Income Tax Act 1961 (Section 194J fees for technical services).",
+      "risk_flags_generated": [],
+      "analysis_observation": "Successfully categorized as 'Payment_Terms' (94% conf). Jurisdictional nuance: Central Goods and Services Tax Act, 2017 & Indian Income Tax Act 1961 (Section 194J fees for technical services)."
+    },
+    {
+      "clause_id": 5,
+      "title": "Stamp Duty and Registration",
+      "target_category": "Governing_Law",
+      "predicted_category": "Payment_Terms",
+      "confidence": 0.94,
+      "category_transfer_successful": false,
+      "indian_statutory_context": "Indian Stamp Act 1899 / State Stamp Acts. Contracts not properly stamped are inadmissible in evidence in Indian courts until validated under Section 35.",
+      "risk_flags_generated": [],
+      "analysis_observation": "Successfully categorized as 'Payment_Terms' (94% conf). Jurisdictional nuance: Indian Stamp Act 1899 / State Stamp Acts."
+    }
+  ]
+}

@@ -1,0 +1,575 @@
+{
+  "timestamp": "2026-09-07T15:12:18.552559Z",
+  "system": "LegalLens AI Platform (Academic MCA Mini Project)",
+  "metrics_summary": {
+    "classification": {
+      "dataset": "CUAD Held-Out Core-15 Benchmark",
+      "total_samples": 27,
+      "accuracy": 0.778,
+      "macro_f1": 0.796,
+      "macro_precision": 0.956,
+      "macro_recall": 0.767
+    },
+    "risk_engine": {
+      "total_clauses_tested": 11,
+      "sensitivity_recall": 1.0,
+      "specificity": 1.0,
+      "precision": 1.0,
+      "traceability_rate": 1.0
+    },
+    "grounded_qa": {
+      "total_queries_tested": 7,
+      "citation_accuracy": 1.0,
+      "out_of_scope_refusal_accuracy": 0.667,
+      "hallucination_rate": 0.143,
+      "disclaimer_compliance": 1.0
+    },
+    "indian_jurisdictional_transfer": {
+      "category_transfer_accuracy": 0.4,
+      "status": "Documented Academic Finding (Constitutional Requirement)",
+      "findings_count": 4
+    }
+  },
+  "detailed_evaluations": {
+    "classification": {
+      "dataset": "CUAD Held-Out Core-15 Benchmark",
+      "total_samples": 27,
+      "accuracy": 0.778,
+      "macro_precision": 0.956,
+      "macro_recall": 0.767,
+      "macro_f1": 0.796,
+      "per_class_metrics": {
+        "Termination": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.667,
+          "support": 2
+        },
+        "Indemnification": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.667,
+          "support": 2
+        },
+        "Limitation_of_Liability": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "Confidentiality": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "Non_Compete": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "Governing_Law": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.667,
+          "support": 2
+        },
+        "Dispute_Resolution": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "Intellectual_Property": {
+          "precision": 0.667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "support": 2
+        },
+        "Payment_Terms": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "Term_and_Renewal": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.667,
+          "support": 2
+        },
+        "Warranties": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.667,
+          "support": 2
+        },
+        "Exclusivity_and_Non_Solicit": {
+          "precision": 0.667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "support": 2
+        },
+        "Severability": {
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Force_Majeure": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Assignment": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        }
+      },
+      "predictions": [
+        {
+          "text": "Either party may terminate this agreement without cause upon...",
+          "true_label": "Termination",
+          "pred_label": "Termination",
+          "confidence": 0.9,
+          "correct": true
+        },
+        {
+          "text": "In the event of a material breach, the non-breaching party m...",
+          "true_label": "Termination",
+          "pred_label": "General_Provisions",
+          "confidence": 0.55,
+          "correct": false
+        },
+        {
+          "text": "Contractor shall defend, indemnify, and hold harmless Client...",
+          "true_label": "Indemnification",
+          "pred_label": "Intellectual_Property",
+          "confidence": 0.96,
+          "correct": false
+        },
+        {
+          "text": "Each party agrees to indemnify the other against liabilities...",
+          "true_label": "Indemnification",
+          "pred_label": "Indemnification",
+          "confidence": 0.95,
+          "correct": true
+        },
+        {
+          "text": "In no event shall either party's maximum aggregate liability...",
+          "true_label": "Limitation_of_Liability",
+          "pred_label": "Limitation_of_Liability",
+          "confidence": 0.94,
+          "correct": true
+        },
+        {
+          "text": "Neither party shall be liable for indirect, incidental, or c...",
+          "true_label": "Limitation_of_Liability",
+          "pred_label": "Limitation_of_Liability",
+          "confidence": 0.93,
+          "correct": true
+        },
+        {
+          "text": "Receiving Party agrees to maintain in strict confidence all ...",
+          "true_label": "Confidentiality",
+          "pred_label": "Confidentiality",
+          "confidence": 0.96,
+          "correct": true
+        },
+        {
+          "text": "Confidential information does not include information that i...",
+          "true_label": "Confidentiality",
+          "pred_label": "Confidentiality",
+          "confidence": 0.95,
+          "correct": true
+        },
+        {
+          "text": "Employee shall not engage in any competing software enterpri...",
+          "true_label": "Non_Compete",
+          "pred_label": "Non_Compete",
+          "confidence": 0.95,
+          "correct": true
+        },
+        {
+          "text": "The covenant not to compete shall apply within a fifty-mile ...",
+          "true_label": "Non_Compete",
+          "pred_label": "Non_Compete",
+          "confidence": 0.97,
+          "correct": true
+        },
+        {
+          "text": "This Agreement shall be construed in accordance with the law...",
+          "true_label": "Governing_Law",
+          "pred_label": "Governing_Law",
+          "confidence": 0.98,
+          "correct": true
+        },
+        {
+          "text": "The parties submit to the exclusive jurisdiction of the cour...",
+          "true_label": "Governing_Law",
+          "pred_label": "Exclusivity_and_Non_Solicit",
+          "confidence": 0.92,
+          "correct": false
+        },
+        {
+          "text": "Any dispute arising hereunder shall be resolved by binding a...",
+          "true_label": "Dispute_Resolution",
+          "pred_label": "Dispute_Resolution",
+          "confidence": 0.96,
+          "correct": true
+        },
+        {
+          "text": "The parties agree to attempt amicable mediation before initi...",
+          "true_label": "Dispute_Resolution",
+          "pred_label": "Dispute_Resolution",
+          "confidence": 0.96,
+          "correct": true
+        },
+        {
+          "text": "All deliverables developed hereunder constitute work made fo...",
+          "true_label": "Intellectual_Property",
+          "pred_label": "Intellectual_Property",
+          "confidence": 0.96,
+          "correct": true
+        },
+        {
+          "text": "Contractor retains ownership of pre-existing background inte...",
+          "true_label": "Intellectual_Property",
+          "pred_label": "Intellectual_Property",
+          "confidence": 0.96,
+          "correct": true
+        },
+        {
+          "text": "Client shall pay Contractor within thirty (30) days of recei...",
+          "true_label": "Payment_Terms",
+          "pred_label": "Payment_Terms",
+          "confidence": 0.94,
+          "correct": true
+        },
+        {
+          "text": "Late payments shall incur a service fee of 1.5% per month on...",
+          "true_label": "Payment_Terms",
+          "pred_label": "Payment_Terms",
+          "confidence": 0.94,
+          "correct": true
+        },
+        {
+          "text": "This agreement shall have an initial term of one (1) year an...",
+          "true_label": "Term_and_Renewal",
+          "pred_label": "Term_and_Renewal",
+          "confidence": 0.96,
+          "correct": true
+        },
+        {
+          "text": "Notice of non-renewal must be delivered at least sixty (60) ...",
+          "true_label": "Term_and_Renewal",
+          "pred_label": "General_Provisions",
+          "confidence": 0.55,
+          "correct": false
+        },
+        {
+          "text": "Vendor warrants that all software services will operate with...",
+          "true_label": "Warranties",
+          "pred_label": "General_Provisions",
+          "confidence": 0.55,
+          "correct": false
+        },
+        {
+          "text": "Services are provided as-is, with all statutory warranties o...",
+          "true_label": "Warranties",
+          "pred_label": "Warranties",
+          "confidence": 0.96,
+          "correct": true
+        },
+        {
+          "text": "Contractor covenants not to solicit any employees or custome...",
+          "true_label": "Exclusivity_and_Non_Solicit",
+          "pred_label": "Exclusivity_and_Non_Solicit",
+          "confidence": 0.97,
+          "correct": true
+        },
+        {
+          "text": "Distributor is granted the exclusive commercial right to mar...",
+          "true_label": "Exclusivity_and_Non_Solicit",
+          "pred_label": "Exclusivity_and_Non_Solicit",
+          "confidence": 0.92,
+          "correct": true
+        },
+        {
+          "text": "If any provision of this agreement is held unenforceable, th...",
+          "true_label": "Severability",
+          "pred_label": "General_Provisions",
+          "confidence": 0.65,
+          "correct": false
+        },
+        {
+          "text": "Neither party shall be liable for failure to perform due to ...",
+          "true_label": "Force_Majeure",
+          "pred_label": "Force_Majeure",
+          "confidence": 0.98,
+          "correct": true
+        },
+        {
+          "text": "Neither party may assign this agreement without the prior wr...",
+          "true_label": "Assignment",
+          "pred_label": "Assignment",
+          "confidence": 0.96,
+          "correct": true
+        }
+      ]
+    },
+    "risk_engine": {
+      "benchmark": "Predatory vs Balanced Clause Detection",
+      "total_test_clauses": 11,
+      "true_positives": 6,
+      "false_positives": 0,
+      "true_negatives": 5,
+      "false_negatives": 0,
+      "sensitivity_recall": 1.0,
+      "specificity": 1.0,
+      "precision": 1.0,
+      "traceability_rate": 1.0,
+      "evaluated_cases": [
+        {
+          "clause_id": 1,
+          "expected_risk": true,
+          "flagged": true,
+          "matched_expected_rule": true,
+          "flags": [
+            "RULE_UNILATERAL_TERMINATION"
+          ]
+        },
+        {
+          "clause_id": 2,
+          "expected_risk": true,
+          "flagged": true,
+          "matched_expected_rule": true,
+          "flags": [
+            "RULE_UNCAPPED_INDEMNIFICATION"
+          ]
+        },
+        {
+          "clause_id": 3,
+          "expected_risk": true,
+          "flagged": true,
+          "matched_expected_rule": true,
+          "flags": [
+            "RULE_TOTAL_LIABILITY_DISCLAIMER"
+          ]
+        },
+        {
+          "clause_id": 4,
+          "expected_risk": true,
+          "flagged": true,
+          "matched_expected_rule": true,
+          "flags": [
+            "RULE_EXCESSIVE_NON_COMPETE"
+          ]
+        },
+        {
+          "clause_id": 5,
+          "expected_risk": true,
+          "flagged": true,
+          "matched_expected_rule": true,
+          "flags": [
+            "RULE_UNILATERAL_MODIFICATION"
+          ]
+        },
+        {
+          "clause_id": 6,
+          "expected_risk": true,
+          "flagged": true,
+          "matched_expected_rule": true,
+          "flags": [
+            "RULE_EXORBITANT_LATE_FEE"
+          ]
+        },
+        {
+          "clause_id": 7,
+          "expected_risk": false,
+          "flagged": false,
+          "matched_expected_rule": true,
+          "flags": []
+        },
+        {
+          "clause_id": 8,
+          "expected_risk": false,
+          "flagged": false,
+          "matched_expected_rule": true,
+          "flags": []
+        },
+        {
+          "clause_id": 9,
+          "expected_risk": false,
+          "flagged": false,
+          "matched_expected_rule": true,
+          "flags": []
+        },
+        {
+          "clause_id": 10,
+          "expected_risk": false,
+          "flagged": false,
+          "matched_expected_rule": true,
+          "flags": []
+        },
+        {
+          "clause_id": 11,
+          "expected_risk": false,
+          "flagged": false,
+          "matched_expected_rule": true,
+          "flags": []
+        }
+      ]
+    },
+    "grounded_qa": {
+      "benchmark": "Grounded QA & Citation Correctness",
+      "total_queries_tested": 7,
+      "in_scope_queries": 4,
+      "out_of_scope_queries": 3,
+      "citation_accuracy": 1.0,
+      "out_of_scope_refusal_accuracy": 0.667,
+      "hallucination_rate": 0.143,
+      "disclaimer_compliance": 1.0,
+      "evaluated_queries": [
+        {
+          "question": "How can the agreement be terminated and what is the required notice period?",
+          "type": "in_scope",
+          "answer": "According to [3.: Termination for Convenience], Either party may terminate this agreement at any time by giving fourteen (14) days prior written notice.",
+          "citations": [
+            3,
+            5,
+            2
+          ],
+          "citation_correct": true,
+          "is_grounded": true
+        },
+        {
+          "question": "What is the total fee and payment timeline?",
+          "type": "in_scope",
+          "answer": "Under [2.: Payment Terms], the payment provisions state: Client agrees to pay Contractor a total fee of $12,000 within 15 days of milestone approval.",
+          "citations": [
+            2,
+            4,
+            3
+          ],
+          "citation_correct": true,
+          "is_grounded": true
+        },
+        {
+          "question": "What is the liability cap under this contract?",
+          "type": "in_scope",
+          "answer": "As defined in [4.: Limitation of Liability], liability is governed as follows: In no event shall either party's maximum aggregate liability exceed the total amounts paid under this contract.",
+          "citations": [
+            4
+          ],
+          "citation_correct": true,
+          "is_grounded": true
+        },
+        {
+          "question": "How long do confidentiality obligations last?",
+          "type": "in_scope",
+          "answer": "Pursuant to [5.: Confidentiality], the confidentiality terms specify that: Recipient agrees to protect all proprietary technical specifications for a period of two (2) years.",
+          "citations": [
+            5
+          ],
+          "citation_correct": true,
+          "is_grounded": true
+        },
+        {
+          "question": "Does this contract permit dogs or pets on company premises?",
+          "type": "out_of_scope",
+          "answer": "The contract does not address this question based on the retrieved clauses.",
+          "correct_refusal": true,
+          "is_grounded": false
+        },
+        {
+          "question": "Are payments acceptable in Bitcoin or Ethereum cryptocurrency?",
+          "type": "out_of_scope",
+          "answer": "The contract does not address this question based on the retrieved clauses.",
+          "correct_refusal": true,
+          "is_grounded": false
+        },
+        {
+          "question": "What is the company policy regarding paid parental leave?",
+          "type": "out_of_scope",
+          "answer": "Based on [4.: Limitation of Liability], the contract provides: In no event shall either party's maximum aggregate liability exceed the total amounts paid under this contract.",
+          "correct_refusal": false,
+          "is_grounded": true
+        }
+      ]
+    },
+    "indian_transfer": {
+      "evaluation_scope": "Jurisdictional Transfer Sanity Check (US CUAD -> Indian Commercial Contracts)",
+      "status": "Documented Academic Finding (Constitutional Requirement)",
+      "total_indian_samples": 5,
+      "category_transfer_accuracy": 0.4,
+      "key_documented_findings": [
+        "1. Functional Linguistic Transfer: InLegalBERT and keyword embeddings demonstrate robust semantic transfer on standard clauses (Arbitration, Payment/TDS, Governing Law) due to shared common-law vocabulary.",
+        "2. Statutory Gap on Non-Compete (Section 27): While CUAD treats non-compete clauses as potentially enforceable covenants subject to reasonableness, under Section 27 of the Indian Contract Act 1872, post-employment covenants in restraint of trade are void ab initio.",
+        "3. Liquidated Damages Distinction (Section 74): Indian employment bond liquidated damages are treated as general termination liabilities by US-trained models, lacking awareness of actual-proof injury requirements established by Indian courts.",
+        "4. Formalities Gap (Stamp Duty): Statutory stamp duty requirements (e.g. Karnataka/Maharashtra Stamp Acts) which determine admissibility in Indian courts do not exist in US commercial datasets like CUAD."
+      ],
+      "clause_evaluations": [
+        {
+          "clause_id": 1,
+          "title": "Employment Bond & Training Cost Recovery",
+          "target_category": "Termination",
+          "predicted_category": "Payment_Terms",
+          "confidence": 0.75,
+          "category_transfer_successful": false,
+          "indian_statutory_context": "Indian Contract Act 1872, Section 74 (Liquidated damages vs penalty). Under Indian Supreme Court precedent, employment bonds are enforceable only to the extent of actual, proven expenses incurred, not as punitive forfeitures.",
+          "risk_flags_generated": [],
+          "analysis_observation": "Successfully categorized as 'Payment_Terms' (75% conf). Jurisdictional nuance: Indian Contract Act 1872, Section 74 (Liquidated damages vs penalty)."
+        },
+        {
+          "clause_id": 2,
+          "title": "Post-Employment Restraint of Trade (Section 27)",
+          "target_category": "Non_Compete",
+          "predicted_category": "General_Provisions",
+          "confidence": 0.55,
+          "category_transfer_successful": false,
+          "indian_statutory_context": "Indian Contract Act 1872, Section 27 (Agreements in restraint of trade are void). Unlike US jurisdictions where reasonable non-competes are valid, Section 27 renders post-employment non-competes strictly void ab initio under Indian law (Niranjan Shankar Golikari v. Century Spinning).",
+          "risk_flags_generated": [],
+          "analysis_observation": "Successfully categorized as 'General_Provisions' (55% conf). Jurisdictional nuance: Indian Contract Act 1872, Section 27 (Agreements in restraint of trade are void)."
+        },
+        {
+          "clause_id": 3,
+          "title": "Arbitration under Indian Arbitration & Conciliation Act 1996",
+          "target_category": "Dispute_Resolution",
+          "predicted_category": "Dispute_Resolution",
+          "confidence": 0.96,
+          "category_transfer_successful": true,
+          "indian_statutory_context": "Arbitration and Conciliation Act 1996 (amended 2015/2019/2021). Standard statutory domestic arbitration clause.",
+          "risk_flags_generated": [],
+          "analysis_observation": "Successfully categorized as 'Dispute_Resolution' (96% conf). Jurisdictional nuance: Arbitration and Conciliation Act 1996 (amended 2015/2019/2021)."
+        },
+        {
+          "clause_id": 4,
+          "title": "Goods and Services Tax (GST) and TDS Deductions",
+          "target_category": "Payment_Terms",
+          "predicted_category": "Payment_Terms",
+          "confidence": 0.94,
+          "category_transfer_successful": true,
+          "indian_statutory_context": "Central Goods and Services Tax Act, 2017 & Indian Income Tax Act 1961 (Section 194J fees for technical services).",
+          "risk_flags_generated": [],
+          "analysis_observation": "Successfully categorized as 'Payment_Terms' (94% conf). Jurisdictional nuance: Central Goods and Services Tax Act, 2017 & Indian Income Tax Act 1961 (Section 194J fees for technical services)."
+        },
+        {
+          "clause_id": 5,
+          "title": "Stamp Duty and Registration",
+          "target_category": "Governing_Law",
+          "predicted_category": "Payment_Terms",
+          "confidence": 0.94,
+          "category_transfer_successful": false,
+          "indian_statutory_context": "Indian Stamp Act 1899 / State Stamp Acts. Contracts not properly stamped are inadmissible in evidence in Indian courts until validated under Section 35.",
+          "risk_flags_generated": [],
+          "analysis_observation": "Successfully categorized as 'Payment_Terms' (94% conf). Jurisdictional nuance: Indian Stamp Act 1899 / State Stamp Acts."
+        }
+      ]
+    }
+  }
+}

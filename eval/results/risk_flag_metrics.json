@@ -1,0 +1,103 @@
+{
+  "benchmark": "Predatory vs Balanced Clause Detection",
+  "total_test_clauses": 11,
+  "true_positives": 6,
+  "false_positives": 0,
+  "true_negatives": 5,
+  "false_negatives": 0,
+  "sensitivity_recall": 1.0,
+  "specificity": 1.0,
+  "precision": 1.0,
+  "traceability_rate": 1.0,
+  "evaluated_cases": [
+    {
+      "clause_id": 1,
+      "expected_risk": true,
+      "flagged": true,
+      "matched_expected_rule": true,
+      "flags": [
+        "RULE_UNILATERAL_TERMINATION"
+      ]
+    },
+    {
+      "clause_id": 2,
+      "expected_risk": true,
+      "flagged": true,
+      "matched_expected_rule": true,
+      "flags": [
+        "RULE_UNCAPPED_INDEMNIFICATION"
+      ]
+    },
+    {
+      "clause_id": 3,
+      "expected_risk": true,
+      "flagged": true,
+      "matched_expected_rule": true,
+      "flags": [
+        "RULE_TOTAL_LIABILITY_DISCLAIMER"
+      ]
+    },
+    {
+      "clause_id": 4,
+      "expected_risk": true,
+      "flagged": true,
+      "matched_expected_rule": true,
+      "flags": [
+        "RULE_EXCESSIVE_NON_COMPETE"
+      ]
+    },
+    {
+      "clause_id": 5,
+      "expected_risk": true,
+      "flagged": true,
+      "matched_expected_rule": true,
+      "flags": [
+        "RULE_UNILATERAL_MODIFICATION"
+      ]
+    },
+    {
+      "clause_id": 6,
+      "expected_risk": true,
+      "flagged": true,
+      "matched_expected_rule": true,
+      "flags": [
+        "RULE_EXORBITANT_LATE_FEE"
+      ]
+    },
+    {
+      "clause_id": 7,
+      "expected_risk": false,
+      "flagged": false,
+      "matched_expected_rule": true,
+      "flags": []
+    },
+    {
+      "clause_id": 8,
+      "expected_risk": false,
+      "flagged": false,
+      "matched_expected_rule": true,
+      "flags": []
+    },
+    {
+      "clause_id": 9,
+      "expected_risk": false,
+      "flagged": false,
+      "matched_expected_rule": true,
+      "flags": []
+    },
+    {
+      "clause_id": 10,
+      "expected_risk": false,
+      "flagged": false,
+      "matched_expected_rule": true,
+      "flags": []
+    },
+    {
+      "clause_id": 11,
+      "expected_risk": false,
+      "flagged": false,
+      "matched_expected_rule": true,
+      "flags": []
+    }
+  ]
+}

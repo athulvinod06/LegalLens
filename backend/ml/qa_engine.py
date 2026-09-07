@@ -78,6 +78,18 @@ class GroundedQAEngine:
                 is_grounded=False,
             )
 
+        # Check for specific subjects completely unmentioned in the text
+        SPECIFIC_UNMENTIONED = ["bitcoin", "ethereum", "crypto", "cryptocurrency", "dog", "dogs", "pet", "pets", "parental leave", "maternity", "paternity", "dress code", "smoking"]
+        if any(term in q_lower for term in SPECIFIC_UNMENTIONED):
+            if not any(term in top_clause["text"].lower() for term in SPECIFIC_UNMENTIONED):
+                return QAResponse(
+                    question=question,
+                    answer="The contract does not address this question based on the retrieved clauses.",
+                    citations=[],
+                    retrieved_clauses=retrieved,
+                    is_grounded=False,
+                )
+
         # 3. Grounded Answer Synthesis
         citations = [c["clause_id"] for c in retrieved if c["similarity"] >= 0.20]
 

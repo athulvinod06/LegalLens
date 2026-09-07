@@ -1,0 +1,77 @@
+{
+  "benchmark": "Grounded QA & Citation Correctness",
+  "total_queries_tested": 7,
+  "in_scope_queries": 4,
+  "out_of_scope_queries": 3,
+  "citation_accuracy": 1.0,
+  "out_of_scope_refusal_accuracy": 1.0,
+  "hallucination_rate": 0.0,
+  "disclaimer_compliance": 1.0,
+  "evaluated_queries": [
+    {
+      "question": "How can the agreement be terminated and what is the required notice period?",
+      "type": "in_scope",
+      "answer": "According to [3.: Termination for Convenience], Either party may terminate this agreement at any time by giving fourteen (14) days prior written notice.",
+      "citations": [
+        3,
+        5,
+        2
+      ],
+      "citation_correct": true,
+      "is_grounded": true
+    },
+    {
+      "question": "What is the total fee and payment timeline?",
+      "type": "in_scope",
+      "answer": "Under [2.: Payment Terms], the payment provisions state: Client agrees to pay Contractor a total fee of $12,000 within 15 days of milestone approval.",
+      "citations": [
+        2,
+        4,
+        3
+      ],
+      "citation_correct": true,
+      "is_grounded": true
+    },
+    {
+      "question": "What is the liability cap under this contract?",
+      "type": "in_scope",
+      "answer": "As defined in [4.: Limitation of Liability], liability is governed as follows: In no event shall either party's maximum aggregate liability exceed the total amounts paid under this contract.",
+      "citations": [
+        4
+      ],
+      "citation_correct": true,
+      "is_grounded": true
+    },
+    {
+      "question": "How long do confidentiality obligations last?",
+      "type": "in_scope",
+      "answer": "Pursuant to [5.: Confidentiality], the confidentiality terms specify that: Recipient agrees to protect all proprietary technical specifications for a period of two (2) years.",
+      "citations": [
+        5
+      ],
+      "citation_correct": true,
+      "is_grounded": true
+    },
+    {
+      "question": "Does this contract permit dogs or pets on company premises?",
+      "type": "out_of_scope",
+      "answer": "The contract does not address this question based on the retrieved clauses.",
+      "correct_refusal": true,
+      "is_grounded": false
+    },
+    {
+      "question": "Are payments acceptable in Bitcoin or Ethereum cryptocurrency?",
+      "type": "out_of_scope",
+      "answer": "The contract does not address this question based on the retrieved clauses.",
+      "correct_refusal": true,
+      "is_grounded": false
+    },
+    {
+      "question": "What is the company policy regarding paid parental leave?",
+      "type": "out_of_scope",
+      "answer": "The contract does not address this question based on the retrieved clauses.",
+      "correct_refusal": true,
+      "is_grounded": false
+    }
+  ]
+}

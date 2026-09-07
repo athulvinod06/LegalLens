@@ -1,0 +1,291 @@
+{
+  "dataset": "CUAD Held-Out Core-15 Benchmark",
+  "total_samples": 27,
+  "accuracy": 0.778,
+  "macro_precision": 0.956,
+  "macro_recall": 0.767,
+  "macro_f1": 0.796,
+  "per_class_metrics": {
+    "Termination": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.667,
+      "support": 2
+    },
+    "Indemnification": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.667,
+      "support": 2
+    },
+    "Limitation_of_Liability": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 2
+    },
+    "Confidentiality": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 2
+    },
+    "Non_Compete": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 2
+    },
+    "Governing_Law": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.667,
+      "support": 2
+    },
+    "Dispute_Resolution": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 2
+    },
+    "Intellectual_Property": {
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "support": 2
+    },
+    "Payment_Terms": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 2
+    },
+    "Term_and_Renewal": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.667,
+      "support": 2
+    },
+    "Warranties": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.667,
+      "support": 2
+    },
+    "Exclusivity_and_Non_Solicit": {
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "support": 2
+    },
+    "Severability": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1
+    },
+    "Force_Majeure": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 1
+    },
+    "Assignment": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 1
+    }
+  },
+  "predictions": [
+    {
+      "text": "Either party may terminate this agreement without cause upon...",
+      "true_label": "Termination",
+      "pred_label": "Termination",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "text": "In the event of a material breach, the non-breaching party m...",
+      "true_label": "Termination",
+      "pred_label": "General_Provisions",
+      "confidence": 0.55,
+      "correct": false
+    },
+    {
+      "text": "Contractor shall defend, indemnify, and hold harmless Client...",
+      "true_label": "Indemnification",
+      "pred_label": "Intellectual_Property",
+      "confidence": 0.96,
+      "correct": false
+    },
+    {
+      "text": "Each party agrees to indemnify the other against liabilities...",
+      "true_label": "Indemnification",
+      "pred_label": "Indemnification",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "text": "In no event shall either party's maximum aggregate liability...",
+      "true_label": "Limitation_of_Liability",
+      "pred_label": "Limitation_of_Liability",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "text": "Neither party shall be liable for indirect, incidental, or c...",
+      "true_label": "Limitation_of_Liability",
+      "pred_label": "Limitation_of_Liability",
+      "confidence": 0.93,
+      "correct": true
+    },
+    {
+      "text": "Receiving Party agrees to maintain in strict confidence all ...",
+      "true_label": "Confidentiality",
+      "pred_label": "Confidentiality",
+      "confidence": 0.96,
+      "correct": true
+    },
+    {
+      "text": "Confidential information does not include information that i...",
+      "true_label": "Confidentiality",
+      "pred_label": "Confidentiality",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "text": "Employee shall not engage in any competing software enterpri...",
+      "true_label": "Non_Compete",
+      "pred_label": "Non_Compete",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "text": "The covenant not to compete shall apply within a fifty-mile ...",
+      "true_label": "Non_Compete",
+      "pred_label": "Non_Compete",
+      "confidence": 0.97,
+      "correct": true
+    },
+    {
+      "text": "This Agreement shall be construed in accordance with the law...",
+      "true_label": "Governing_Law",
+      "pred_label": "Governing_Law",
+      "confidence": 0.98,
+      "correct": true
+    },
+    {
+      "text": "The parties submit to the exclusive jurisdiction of the cour...",
+      "true_label": "Governing_Law",
+      "pred_label": "Exclusivity_and_Non_Solicit",
+      "confidence": 0.92,
+      "correct": false
+    },
+    {
+      "text": "Any dispute arising hereunder shall be resolved by binding a...",
+      "true_label": "Dispute_Resolution",
+      "pred_label": "Dispute_Resolution",
+      "confidence": 0.96,
+      "correct": true
+    },
+    {
+      "text": "The parties agree to attempt amicable mediation before initi...",
+      "true_label": "Dispute_Resolution",
+      "pred_label": "Dispute_Resolution",
+      "confidence": 0.96,
+      "correct": true
+    },
+    {
+      "text": "All deliverables developed hereunder constitute work made fo...",
+      "true_label": "Intellectual_Property",
+      "pred_label": "Intellectual_Property",
+      "confidence": 0.96,
+      "correct": true
+    },
+    {
+      "text": "Contractor retains ownership of pre-existing background inte...",
+      "true_label": "Intellectual_Property",
+      "pred_label": "Intellectual_Property",
+      "confidence": 0.96,
+      "correct": true
+    },
+    {
+      "text": "Client shall pay Contractor within thirty (30) days of recei...",
+      "true_label": "Payment_Terms",
+      "pred_label": "Payment_Terms",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "text": "Late payments shall incur a service fee of 1.5% per month on...",
+      "true_label": "Payment_Terms",
+      "pred_label": "Payment_Terms",
+      "confidence": 0.94,
+      "correct": true
+    },
+    {
+      "text": "This agreement shall have an initial term of one (1) year an...",
+      "true_label": "Term_and_Renewal",
+      "pred_label": "Term_and_Renewal",
+      "confidence": 0.96,
+      "correct": true
+    },
+    {
+      "text": "Notice of non-renewal must be delivered at least sixty (60) ...",
+      "true_label": "Term_and_Renewal",
+      "pred_label": "General_Provisions",
+      "confidence": 0.55,
+      "correct": false
+    },
+    {
+      "text": "Vendor warrants that all software services will operate with...",
+      "true_label": "Warranties",
+      "pred_label": "General_Provisions",
+      "confidence": 0.55,
+      "correct": false
+    },
+    {
+      "text": "Services are provided as-is, with all statutory warranties o...",
+      "true_label": "Warranties",
+      "pred_label": "Warranties",
+      "confidence": 0.96,
+      "correct": true
+    },
+    {
+      "text": "Contractor covenants not to solicit any employees or custome...",
+      "true_label": "Exclusivity_and_Non_Solicit",
+      "pred_label": "Exclusivity_and_Non_Solicit",
+      "confidence": 0.97,
+      "correct": true
+    },
+    {
+      "text": "Distributor is granted the exclusive commercial right to mar...",
+      "true_label": "Exclusivity_and_Non_Solicit",
+      "pred_label": "Exclusivity_and_Non_Solicit",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "text": "If any provision of this agreement is held unenforceable, th...",
+      "true_label": "Severability",
+      "pred_label": "General_Provisions",
+      "confidence": 0.65,
+      "correct": false
+    },
+    {
+      "text": "Neither party shall be liable for failure to perform due to ...",
+      "true_label": "Force_Majeure",
+      "pred_label": "Force_Majeure",
+      "confidence": 0.98,
+      "correct": true
+    },
+    {
+      "text": "Neither party may assign this agreement without the prior wr...",
+      "true_label": "Assignment",
+      "pred_label": "Assignment",
+      "confidence": 0.96,
+      "correct": true
+    }
+  ]
+}
