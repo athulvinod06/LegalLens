@@ -47,6 +47,7 @@ pip install -r backend/requirements.txt
 # Configure environment
 cp .env.example .env
 # Edit .env with your DATABASE_URL and LLM API keys
+# For docker-free local PostgreSQL setup instructions, see docs/postgres_setup.md
 
 # Run migrations and start backend server
 uvicorn backend.app.main:app --reload --port 8000
