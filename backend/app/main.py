@@ -22,6 +22,11 @@ app.add_middleware(
 )
 
 from backend.app.routers.documents import router as documents_router
+from backend.database import init_db
+
+# Initialize database schema
+init_db()
+
 app.include_router(documents_router)
 
 

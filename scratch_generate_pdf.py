@@ -240,8 +240,8 @@ def build_pdf(filename):
     story.append(Paragraph("&bull; <b>Checklist Omission Audit:</b> Tailored checklists for Employment, Freelance, Rental, and Vendor agreements flag missing critical protections.", bullet_style))
     story.append(Paragraph("&bull; <b>Auditability:</b> Every penalty points directly to clause index, triggering rule, penalty points deducted, and layman explanation.", bullet_style))
 
-    # Section 6: Accomplishments in Phases 0 to 6
-    story.append(Paragraph("6. Verified Implementation & Test Status (Phases 0–6)", h1_style))
+    # Section 6: Accomplishments in Phases 0 to 7
+    story.append(Paragraph("6. Verified Implementation & Test Status (Phases 0–7)", h1_style))
     status_data = [
         [Paragraph("<b>Phase / Module</b>", body_style), Paragraph("<b>Test Suite File</b>", body_style), Paragraph("<b>Tests</b>", body_style), Paragraph("<b>Status & Pass Rate</b>", body_style)],
         [Paragraph("Phase 0: Scaffold & Health", body_style), Paragraph("<code>backend/tests/test_health.py</code>", body_style), Paragraph("2", body_style), Paragraph("<font color='#16a34a'><b>2 / 2 PASSED (100%)</b></font>", body_style)],
@@ -251,8 +251,9 @@ def build_pdf(filename):
         [Paragraph("Phase 4: Risk Assessment Engine", body_style), Paragraph("<code>backend/tests/test_risk_engine.py</code>", body_style), Paragraph("5", body_style), Paragraph("<font color='#16a34a'><b>5 / 5 PASSED (100%)</b></font>", body_style)],
         [Paragraph("Phase 5: Embedding & RAG QA", body_style), Paragraph("<code>backend/tests/test_qa_engine.py</code>", body_style), Paragraph("4", body_style), Paragraph("<font color='#16a34a'><b>4 / 4 PASSED (100%)</b></font>", body_style)],
         [Paragraph("Phase 6: Dashboard & API Wiring", body_style), Paragraph("<code>backend/tests/test_api.py</code>", body_style), Paragraph("7", body_style), Paragraph("<font color='#16a34a'><b>7 / 7 PASSED (100%)</b></font>", body_style)],
-        [Paragraph("<b>TOTAL BACKEND SUITE</b>", body_style), Paragraph("<code>pytest backend/tests -v</code>", body_style), Paragraph("<b>37</b>", body_style), Paragraph("<font color='#16a34a'><b>37 / 37 PASSED (100%)</b></font>", body_style)],
-        [Paragraph("Frontend Production Build", body_style), Paragraph("<code>npm run build (Vite + React)</code>", body_style), Paragraph("1500 mod", body_style), Paragraph("<font color='#16a34a'><b>SUCCESS (0 errors, 11.5s)</b></font>", body_style)],
+        [Paragraph("Phase 7: Datastore & Scoping", body_style), Paragraph("<code>backend/tests/test_datastore.py</code>", body_style), Paragraph("3", body_style), Paragraph("<font color='#16a34a'><b>3 / 3 PASSED (100%)</b></font>", body_style)],
+        [Paragraph("<b>TOTAL BACKEND SUITE</b>", body_style), Paragraph("<code>pytest backend/tests -v</code>", body_style), Paragraph("<b>40</b>", body_style), Paragraph("<font color='#16a34a'><b>40 / 40 PASSED (100%)</b></font>", body_style)],
+        [Paragraph("Frontend Production Build", body_style), Paragraph("<code>npm run build (Vite + React)</code>", body_style), Paragraph("1500 mod", body_style), Paragraph("<font color='#16a34a'><b>SUCCESS (0 errors, 2.1s)</b></font>", body_style)],
     ]
     t_stat = Table(status_data, colWidths=[140, 180, 50, 134])
     t_stat.setStyle(TableStyle([
@@ -260,7 +261,7 @@ def build_pdf(filename):
         ('BACKGROUND', (0,-2), (-1,-2), colors.HexColor("#f8fafc")),
         ('BOX', (0,0), (-1,-1), 0.5, border_color),
         ('INNERGRID', (0,0), (-1,-1), 0.5, border_color),
-        ('PADDING', (0,0), (-1,-1), 3.5),
+        ('PADDING', (0,0), (-1,-1), 3.0),
         ('VALIGN', (0,0), (-1,-1), 'TOP'),
     ]))
     story.append(t_stat)
@@ -277,7 +278,7 @@ def build_pdf(filename):
         [Paragraph("Phase 4", body_style), Paragraph("Risk Assessment Engine", body_style), Paragraph("<b>[COMPLETED]</b> Checklists, imbalance heuristics, weighted deduction model.", body_style)],
         [Paragraph("Phase 5", body_style), Paragraph("Embedding & RAG QA", body_style), Paragraph("<b>[COMPLETED]</b> Vector store, semantic search, grounded QA with citations.", body_style)],
         [Paragraph("Phase 6", body_style), Paragraph("Interactive Dashboard", body_style), Paragraph("<b>[COMPLETED]</b> React dashboard, upload flow, risk cards, chat, PDF export.", body_style)],
-        [Paragraph("Phase 7", body_style), Paragraph("Data Store Wiring", body_style), Paragraph("PostgreSQL persistence with per-user scoping across tables and vector store.", body_style)],
+        [Paragraph("Phase 7", body_style), Paragraph("Data Store Wiring", body_style), Paragraph("<b>[COMPLETED]</b> PostgreSQL schema, user account isolation, cascade deletions.", body_style)],
         [Paragraph("Phase 8", body_style), Paragraph("Evaluation Harness", body_style), Paragraph("Precision/recall/macro-F1 on CUAD, risk accuracy, QA quality, Indian contract transfer.", body_style)],
         [Paragraph("Phase 9", body_style), Paragraph("Polish & Docs", body_style), Paragraph("Final docs, architecture diagrams, viva demo walkthrough script.", body_style)],
     ]

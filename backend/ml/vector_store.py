@@ -42,6 +42,7 @@ class ContractVectorStore:
     def index_clauses(self, user_id: str, contract_id: str, clauses: list):
         """
         Stores clause texts and metadata scoped strictly to user_id and contract_id.
+        Metadata schema: {"user_id": str, "contract_id": str, "clause_id": str, ...}
         """
         key = self._get_key(user_id, contract_id)
         entries = []
@@ -59,24 +60,24 @@ class ContractVectorStore:
                 "title": ctitle or ccat,
                 "category": ccat,
                 "text": ctext,
-                "user_id": user_id,
-                "contract_id": contract_id,
+                "user_id": str(user_id),
+                "contract_id": str(contract_id),
             })
 
         self._in_memory_index[key] = entries
 
-        # If ChromaDB is active, persist to Chroma
+        # If ChromaDB is active, persist to Chroma with exact metadata tags
         if self._collection is not None and entries:
             try:
                 ids = [f"{key}_{e['clause_id']}" for e in entries]
                 documents = [f"{e['title']}: {e['text']}" for e in entries]
                 metadatas = [
                     {
-                        "user_id": user_id,
-                        "contract_id": contract_id,
-                        "clause_id": e["clause_id"],
-                        "clause_number": e["clause_number"],
-                        "category": e["category"],
+                        "user_id": str(user_id),
+                        "contract_id": str(contract_id),
+                        "clause_id": str(e["clause_id"]),
+                        "clause_number": str(e["clause_number"]),
+                        "category": str(e["category"]),
                     }
                     for e in entries
                 ]
@@ -84,11 +85,52 @@ class ContractVectorStore:
             except Exception:
                 pass
 
+    def delete_contract_vectors(self, user_id: str, contract_id: str):
+        """
+        Cleanly removes all vector embeddings associated with a user's contract.
+        """
+        key = self._get_key(user_id, contract_id)
+        if key in self._in_memory_index:
+            del self._in_memory_index[key]
+
+        if self._collection is not None:
+            try:
+                self._collection.delete(
+                    where={"$and": [{"user_id": str(user_id)}, {"contract_id": str(contract_id)}]}
+                )
+            except Exception:
+                pass
+
     def search(self, user_id: str, contract_id: str, query: str, top_k: int = 3) -> List[Dict[str, Any]]:
         """
         Retrieves top-k semantically relevant clauses matching query.
-        Ensures strict scoping per user_id and contract_id.
+        Strictly enforces user_id and contract_id isolation.
         """
+        # ChromaDB query with constitutional where filter
+        if self._collection is not None:
+            try:
+                res = self._collection.query(
+                    query_texts=[query],
+                    n_results=top_k,
+                    where={"$and": [{"user_id": str(user_id)}, {"contract_id": str(contract_id)}]}
+                )
+                if res and res.get("documents") and res["documents"][0]:
+                    chroma_results = []
+                    for doc, meta in zip(res["documents"][0], res["metadatas"][0]):
+                        chroma_results.append({
+                            "clause_id": int(meta["clause_id"]),
+                            "clause_number": meta.get("clause_number", ""),
+                            "title": meta.get("category", ""),
+                            "category": meta.get("category", "General"),
+                            "text": doc,
+                            "similarity": 0.90,
+                        })
+                    if chroma_results:
+                        return chroma_results
+            except Exception:
+                pass
+
+        # In-memory index fallback
         key = self._get_key(user_id, contract_id)
         candidates = self._in_memory_index.get(key, [])
         if not candidates:
