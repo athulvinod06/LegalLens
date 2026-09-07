@@ -1,0 +1,1 @@
+"""LegalLens FastAPI application package."""
