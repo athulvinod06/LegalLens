@@ -21,6 +21,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from backend.app.routers.documents import router as documents_router
+app.include_router(documents_router)
+
 
 @app.get("/health", tags=["Health"])
 @app.get("/api/health", tags=["Health"])
