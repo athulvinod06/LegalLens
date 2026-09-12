@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import {
   ShieldAlert, ShieldCheck, AlertTriangle, FileText, UploadCloud,
   Send, Download, CheckCircle2, XCircle, MessageSquare, Search,
-  Info, ExternalLink, Sparkles, RefreshCw
+  Info, Sparkles, RefreshCw
 } from 'lucide-react';
 
 const CONTRACT_TYPES = [
@@ -246,14 +246,6 @@ export default function App() {
                 Export PDF Audit
               </button>
             )}
-            <a
-              href="/docs"
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1 transition"
-            >
-              API Docs <ExternalLink className="h-3 w-3" />
-            </a>
           </div>
         </div>
       </header>
@@ -392,7 +384,11 @@ export default function App() {
               <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Clauses Analyzed</p>
                 <p className="text-2xl font-bold text-slate-900 mt-1">{analysis.clauses.length}</p>
-                <p className="text-xs text-slate-500 mt-1">InLegalBERT 15-core classes</p>
+                <p className="text-xs text-slate-500 mt-1">
+                  {analysis.classifier_source === 'inlegalbert-cuad-finetuned'
+                    ? '15-core categories (InLegalBERT, fine-tuned on CUAD)'
+                    : '15-core categories (baseline classifier)'}
+                </p>
               </div>
             </div>
 

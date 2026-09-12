@@ -29,4 +29,5 @@ class DocumentUploadResponse(BaseModel):
     total_characters: int
     clauses: List[Dict[str, Any]]
     risk_report: Dict[str, Any]
+    classifier_source: str = "baseline-keyword"
     disclaimer: str = "LegalLens is an automated first-pass contract analysis tool. It does not provide legal advice."

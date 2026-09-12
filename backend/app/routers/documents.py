@@ -6,8 +6,10 @@ with strict per-user account isolation and vector store scoping.
 
 import uuid
 import json
+import os
 from typing import Dict, Any, Optional
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException, Response, Depends, Query
+from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 
 from backend.database import get_db
@@ -220,6 +222,7 @@ def process_and_persist_contract(
             "category": c.category,
             "confidence": c.confidence,
             "is_core_category": c.is_core_category,
+            "classifier_source": c.classifier_source,
         }
         for c in classified
     ]
@@ -232,6 +235,7 @@ def process_and_persist_contract(
         total_characters=contract.total_characters,
         clauses=clauses_data,
         risk_report=risk_report.model_dump(),
+        classifier_source=classifier_service.classifier_source,
     )
 
     ANALYSIS_CACHE[contract_id] = response_data.model_dump()
@@ -435,3 +439,20 @@ def export_pdf_by_id(contract_id: str):
     if contract_id not in ANALYSIS_CACHE:
         raise HTTPException(status_code=404, detail="Contract ID not found in session cache.")
     return export_pdf_report(ANALYSIS_CACHE[contract_id])
+
+
+@router.get("/api/documents/project-report")
+@router.get("/api/documents/project-documentation")
+def download_project_report():
+    """
+    Downloads the comprehensive LegalLens project summary documentation report.
+    """
+    pdf_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../LegalLens_Project_Documentation.pdf"))
+    if os.path.exists(pdf_path):
+        return FileResponse(
+            path=pdf_path,
+            media_type="application/pdf",
+            filename="LegalLens_Project_Documentation.pdf"
+        )
+    raise HTTPException(status_code=404, detail="Project summary report not found.")
+

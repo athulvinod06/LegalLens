@@ -11,7 +11,8 @@ from typing import Dict, List, Any
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from backend.ml.classifier import classifier_service, CATEGORIES
+from backend.ml.categories import CATEGORIES
+from backend.ml.classifier import classifier_service
 
 # Benchmark labeled dataset representative of held-out CUAD annotations
 BENCHMARK_CLAUSES = [

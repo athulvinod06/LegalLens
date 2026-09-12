@@ -21,6 +21,8 @@ def test_api_load_sample_contract():
     assert "risk_report" in data
     assert data["risk_report"]["overall_score"] > 0
     assert "disclaimer" in data
+    assert "classifier_source" in data
+    assert data["classifier_source"] in ["baseline-keyword", "inlegalbert-cuad-finetuned"]
 
 
 def test_api_upload_pdf():

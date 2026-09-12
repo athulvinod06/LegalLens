@@ -10,24 +10,7 @@ import re
 from typing import List, Tuple, Optional, Dict
 from pydantic import BaseModel
 
-# 15 Core CUAD categories as documented in AGENTS.md and implementation plan
-CATEGORIES = [
-    "Termination",
-    "Indemnification",
-    "Limitation_of_Liability",
-    "Confidentiality",
-    "Non_Compete",
-    "Governing_Law",
-    "Dispute_Resolution",
-    "Intellectual_Property",
-    "Payment_Terms",
-    "Term_and_Renewal",
-    "Warranties",
-    "Exclusivity_and_Non_Solicit",
-    "Severability",
-    "Force_Majeure",
-    "Assignment",
-]
+from backend.ml.categories import CATEGORIES
 
 # Robust legal keyword and phrase patterns for the 15 core categories
 CATEGORY_SIGNALS: Dict[str, List[Tuple[str, float]]] = {
@@ -120,6 +103,7 @@ class ClassifiedClause(BaseModel):
     category: str
     confidence: float
     is_core_category: bool = True
+    classifier_source: Optional[str] = None
 
 
 class ClauseClassifier:
@@ -144,6 +128,16 @@ class ClauseClassifier:
                 self._model.eval()
             except Exception:
                 self._model = None
+
+    @property
+    def classifier_source(self) -> str:
+        """
+        Identifies whether the active classifier is the fine-tuned InLegalBERT
+        neural model or the deterministic keyword/regex baseline fallback.
+        """
+        if self._model is not None:
+            return "inlegalbert-cuad-finetuned"
+        return "baseline-keyword"
 
     def classify_text(self, text: str, title: Optional[str] = None) -> Tuple[str, float]:
         """
@@ -186,7 +180,8 @@ class ClauseClassifier:
             text=text,
             category=category,
             confidence=confidence,
-            is_core_category=category in self.categories
+            is_core_category=category in self.categories,
+            classifier_source=self.classifier_source
         )
 
     def classify_clauses(self, clauses: list) -> List[ClassifiedClause]:
